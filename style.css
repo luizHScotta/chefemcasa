@@ -1,0 +1,269 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1A150C;
+    color: white;
+}
+
+
+/*barra de navegação*/
+.sidebar {
+    height: 300px;
+    width: 100px;
+    position: fixed;
+    top: 150px;
+    background-color: #F6D323;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.nav-options {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-options li {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.nav-options li a {
+    text-decoration: none;
+    color: #1A150C;
+    display: block;
+}
+
+.nav-options li a:hover {
+    background-color: beige;
+    border-radius: 100px;
+}
+
+/*Home*/
+
+
+.Home-conteiner{
+    background-image: url('./img/HomeIMG.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.Home-conteiner h1{
+    font-size: 50px;
+    text-align: center;
+    color: #1A150C;
+    background-color: #f6efcd72;
+    border-radius: 50px;
+    padding: 20px;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+}
+
+.seta img {
+    width: 60px;
+    height: auto;
+    background-color: #f6efcd87;
+    border-radius: 100px;
+    animation: moveUpDown 2s infinite;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/*History*/
+
+.history-conteiner{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.img-history{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 80px;
+}
+
+.img-history img{
+    width: 230px;
+    height: auto;
+    margin: 20px;
+    border-radius: 100%;
+}
+
+.text-history{
+    width: 30%;
+    padding: 20px;
+    margin: 50px;
+}
+
+.text-history h2{
+    font-size: 40px;
+    text-align: center;
+}
+
+.text-history p{
+    font-size: 22px;
+    text-align: justify;
+}
+
+strong{
+    color: #F6D323 ;
+}
+
+/*recipe*/
+
+
+
+.recipe-conteiner{
+	width: 80%;
+    height: 800px;
+	margin: 0 auto;
+	padding: 0 2rem 2rem;
+}
+
+
+.gallery{
+	display: flex;
+	flex-wrap: wrap;
+	margin: -1rem -1rem;
+}
+
+.gallery-item {
+	flex: 1 0 5rem;
+	margin: 1rem;
+	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+
+.gallery-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 400ms ease-out;
+    filter: brightness(0.7);
+}
+
+.gallery-image:hover {
+	transform: scale(1.15);
+    filter: brightness(1);
+}
+
+@supports (display: grid) {
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(20rem, 0.5fr));
+		grid-gap: 0.5rem;
+	}
+
+	.gallery,
+	.gallery-item {
+		margin: 0;
+	}
+}
+
+/*Contact*/
+
+.contact-conteiner{
+    background-image: url(img/HomeIMG.jpg);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.team{
+    width: 80%;
+    height: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.membro{
+    width: 25%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: #F6D323;
+    border-radius: 50px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+}
+
+.membro img{
+    width: 150px;
+    height: auto;
+    border-radius: 100px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+}
+
+.membro button{
+    margin: 0 auto;
+   width: 80%;
+   height: 50px;
+   margin-top: 10px;
+   border-radius: 10px;
+   border-width: 0;
+   background-color:beige;
+   box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+
+}
+
+.membro button:hover{
+   background-color:#f6d32372;
+
+}
+
+.membro a{
+    text-decoration: none;
+    color: #1A150C;
+}
+
+.membro h3{
+    color:#1A150C;
+    margin: 3px;
+    font-size: 15px;
+    
+}
+
+/*receita*/
+
