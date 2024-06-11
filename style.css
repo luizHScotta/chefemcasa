@@ -9,15 +9,18 @@ body {
 
 /*barra de navegação*/
 .sidebar {
-    height: 300px;
-    width: 100px;
+    height: 50vh;
+    width: 10vw;
     position: fixed;
     top: 150px;
     background-color: #F6D323;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
 }
+
 
 .logo {
     text-align: center;
@@ -25,7 +28,8 @@ body {
 }
 
 .logo img {
-    width: 100px;
+    width: 10vw;
+    height: auto;
 }
 
 .nav-options {
@@ -49,9 +53,49 @@ body {
     border-radius: 100px;
 }
 
+/* Estilo quando a barra de navegação está visível */
+.sidebar.visible {
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    
+    .sidebar {
+        height: auto;
+        width: 100%;
+        top: 0;
+        border-radius: 0;
+        transform: translateY(-100%);
+    }
+
+    .logo {
+        text-align: center;
+        background-color: #F6D323;
+        border-radius: 100%;
+        margin-bottom: 30px;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+
+    .nav-options {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .sidebar.visible .nav-options {
+        display: flex;
+    }
+
+    .sidebar.visible {
+        transform: translateY(0);
+    }
+}
+
 /*Home*/
-
-
 .Home-conteiner{
     background-image: url('./img/HomeIMG.jpg');
     background-size: cover;
@@ -75,7 +119,7 @@ body {
 }
 
 .seta img {
-    width: 60px;
+    width: 4vw;
     height: auto;
     background-color: #f6efcd87;
     border-radius: 100px;
@@ -101,35 +145,36 @@ body {
     display: flex;
     justify-content: space-around;
     width: 100%;
+    height: 100vh;
 }
 
 .img-history{
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    margin: 80px;
+    padding: 1vw;
+    margin: 4vw;
 }
 
 .img-history img{
-    width: 230px;
+    width: 15vw;
     height: auto;
-    margin: 20px;
+    margin: 2vw;
     border-radius: 100%;
 }
 
 .text-history{
-    width: 30%;
-    padding: 20px;
-    margin: 50px;
+    width: 35vw;
+    padding: 1vw;
+    margin: 4vw;
 }
 
 .text-history h2{
-    font-size: 40px;
+    font-size: 2.5vw;
     text-align: center;
 }
 
 .text-history p{
-    font-size: 22px;
+    font-size: 1.2vw;
     text-align: justify;
 }
 
@@ -137,56 +182,76 @@ strong{
     color: #F6D323 ;
 }
 
-/*recipe*/
+@media (max-width: 768px) {
+    .history-conteiner{
+        flex-direction: column;
+        justify-content: center;
+        top: auto;
+    }
+    
+    .img-history{
+        flex-direction: row;
+        margin: 0 auto;
+    }
+    
+    .img-history img{
+        width: 30vw;
 
+    }
 
+    .text-history{
+        width: 60vw;
+        margin: 0 auto;
+    }
 
-.recipe-conteiner{
-	width: 80%;
-    height: 800px;
-	margin: 0 auto;
-	padding: 0 2rem 2rem;
+    .text-history h2{
+        font-size: 3.5vw;
+    }
+    
+    .text-history p{
+        font-size: 2vw;
+    }
 }
 
+/*recipe*/
+.recipe-container {
+    width: 80vw;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0 0.5rem 0.5rem;
+}
 
-.gallery{
-	display: flex;
-	flex-wrap: wrap;
-	margin: -1rem -1rem;
+.gallery-wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 0.5rem;
+    margin: 0;
+    padding: 0;
 }
 
 .gallery-item {
-	flex: 1 0 5rem;
-	margin: 1rem;
-	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
-	overflow: hidden;
+    margin: 0.1rem;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+    overflow: hidden;
 }
 
 .gallery-image {
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: transform 400ms ease-out;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 400ms ease-out;
     filter: brightness(0.7);
 }
 
 .gallery-image:hover {
-	transform: scale(1.15);
+    transform: scale(1.15);
     filter: brightness(1);
-}
-
-@supports (display: grid) {
-	.gallery {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(20rem, 0.5fr));
-		grid-gap: 0.5rem;
-	}
-
-	.gallery,
-	.gallery-item {
-		margin: 0;
-	}
 }
 
 /*Contact*/
@@ -204,7 +269,7 @@ strong{
 
 .team{
     width: 80%;
-    height: 600px;
+    height: 100vh;
     margin: 0 auto;
     padding: 20px;
     display: flex;
@@ -267,3 +332,83 @@ strong{
 
 /*receita*/
 
+.home-receita{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #F6D323;
+}
+
+.home-receita-conteiner{
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.receita-img img{
+    width: 30vw;
+    height: auto;
+    border-radius: 5%;
+}
+
+.receita-history{
+    width: 40vw;
+}
+
+/* Estilos para a tabela */
+.tabela-receita {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse; /* Remover espaços entre bordas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adicionar sombra */
+}
+
+table {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #F6D323;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4; /* Cor de fundo do cabeçalho */
+    font-weight: bold; /* Texto em negrito */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Cor de fundo alternada */
+}
+
+/* Estilos para o passo a passo */
+.modo-de-preparo {
+    width: 80%;
+    margin: 20px auto; /* Margem superior para espaçamento */
+    padding: 20px; /* Espaçamento interno */
+    border: 1px solid #ddd; /* Borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adicionar sombra */
+}
+
+.modo-de-preparo h2 {
+    margin-bottom: 15px; /* Espaçamento inferior */
+    font-size: 1.5em; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
+.modo-de-preparo ol {
+    padding-left: 20px; /* Recuo da lista ordenada */
+}
+
+.modo-de-preparo li {
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+    line-height: 1.6; /* Altura da linha */
+}
